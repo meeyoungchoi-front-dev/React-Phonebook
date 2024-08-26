@@ -1,6 +1,12 @@
-let initialState = {};
+let initialState = {
+    contactList: []
+};
 function reducer(state=initialState, action) {
-
-}
+    const {type, payload} = action;
+    if (type === "ADD_CONTACT") {
+        return {...state, contactList:[...state.contactList, {name: payload.name, phoneNumber: payload.phoneNumber}]}
+    }
+    return [...state];
+}   
 
 export default reducer;
